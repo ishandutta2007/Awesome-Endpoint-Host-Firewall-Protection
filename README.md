@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
   <a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
-  <a href="https://github.com/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection?style=social" alt="GitHub stars" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection?style=social" alt="GitHub_Stars" /></a>
   <a href="https://github.com/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection/network/members"><img src="https://img.shields.io/github/forks/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection?style=social" alt="GitHub forks" /></a>
   <a href="https://github.com/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection/issues"><img src="https://img.shields.io/github/issues/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection?color=red" alt="GitHub issues" /></a>
   <a href="https://github.com/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" /></a>
@@ -70,13 +70,13 @@ Enterprise endpoint host firewalls provide centralized policy orchestration, glo
 
 ## 💻 Open-Source GitHub Projects
 
-Open-source host firewalls enable fully transparent, auditable, and self-hosted network defense. The list below features top community and kernel-level solutions sorted by GitHub Star counts.
+Open-source host firewalls enable fully transparent, auditable, and self-hosted network defense. The list below features top community and kernel-level solutions sorted by GitHub Stars_Counts.
 
 ### 🌟 Open-Source Repository Ranking
 
-*All repositories sorted in descending order by GitHub Stars. Badges display real-time stargazers with `style=social`.*
+*All repositories sorted in descending order by GitHub_Stars. Badges display real-time stargazers with `style=social`.*
 
-| Project & Repository | Stars | Primary Platform | Architecture & Inspection Layer | Core Capabilities |
+| Project & Repository | GitHub_Stars | Primary Platform | Architecture & Inspection Layer | Core Capabilities |
 | :--- | :--- | :--- | :--- | :--- |
 | **[Fail2ban](https://github.com/fail2ban/fail2ban)** | [![Stars](https://img.shields.io/github/stars/fail2ban/fail2ban?style=social&color=white)](https://github.com/fail2ban/fail2ban/stargazers) | Linux | Log Analysis & Dynamic iptables/nftables | Scans auth logs (SSH, HTTP, mail) for brute-force attacks and dynamically bans malicious IPs via netfilter rules. |
 | **[CrowdSec](https://github.com/crowdsecurity/crowdsec)** | [![Stars](https://img.shields.io/github/stars/crowdsecurity/crowdsec?style=social&color=white)](https://github.com/crowdsecurity/crowdsec/stargazers) | Linux, Windows, macOS, BSD | Behavioral Telemetry & Firewall Bouncers | Collaborative intrusion prevention engine; parses system and application logs to trigger automatic remediation bouncers. |
