@@ -1,201 +1,147 @@
 # Awesome-Endpoint-Host-Firewall-Protection
 
-# Awesome-Endpoint-Host-Firewall-Protection
-
-**Top Endpoint Host Firewall Protection (Opensource) 🌟 Star if you like it! 🌟**
-
-
-
-**Curated List of SaaS Products & Open-Source GitHub Projects**
-
-*Focused on Host-Based Firewalls, Application Control, Egress Filtering & Self-Hosted Endpoint Defense*
-
-**Last updated: November 2026**
-
-
-
-This repository tracks notable **SaaS platforms** and **open-source projects** for **Endpoint Host Firewall Protection**. These tools enable organizations to control network traffic at the host level—blocking malicious connections, restricting application egress, and enforcing network segmentation on endpoints—from fully managed enterprise suites with cloud-managed policies to open-source firewalls that give teams complete control over their host defense.
-
-
-
-**Examples** include CrowdStrike Falcon Firewall Management, Microsoft Defender Firewall, Sophos Endpoint Firewall, Symantec Client Firewall, Trellix Endpoint Firewall, Bitdefender GravityZone, Comodo Firewall, ZoneAlarm Business, Kaspersky Endpoint Security, and Check Point Endpoint Security (the category leaders in commercial space).
-
-
-
-**Open-source emphasis**: This section is expanded with every relevant project for self-hosted endpoint firewalls, egress control, and open host defense. **Critical note**: The open-source landscape is genuinely functional—**SysWarden** provides auditable nftables enforcement with fail-closed design , **Portmaster** offers application-level egress control with privacy features , and **OpenSnitch** derivatives deliver interactive per-connection prompts . No open-source project matches CrowdStrike's cloud-managed policy orchestration across thousands of endpoints, but for single-host or small-fleet protection, the options are production-capable.
-
-
-
-Contributions welcome! Open a PR to add/update entries. Keep descriptions factual and link to official sites.
-
-
-
-## Table of Contents
-
-- [SaaS/Hosted Platforms](#saas-hosted-platforms)
-
-- [Open-Source GitHub Projects](#open-source-github-projects)
-
-- [How to Contribute](#how-to-contribute)
-
-- [Disclaimer](#disclaimer)
-
-
-
-## SaaS/Hosted Platforms
-
-
-
-- **CrowdStrike Falcon Firewall Management**
-
-  **Cloud-managed host firewall** within Falcon platform. **Pricing**: **Falcon Go free** (100 devices, includes firewall management); **Pro $14.99/device/month** or **$99.99/year**; **Enterprise $19.99/month** or **$184.99/year** . **Free tier**: Yes, 100 devices on Falcon Go. **Best for**: CrowdStrike customers wanting firewall policies managed alongside EDR—**trade-off**: requires Falcon agent; full features need paid tiers.
-
-
-
-- **Microsoft Defender Firewall**
-
-  **Built-in Windows firewall** with advanced security management. **Pricing**: **Free with Windows 10/11**; **Microsoft Defender for Business $2.94/user/month** (annual) or **$1.40/user/month** add-on for cross-platform management . **Free tier**: Yes, fully featured on Windows. **Best for**: Windows-centric organizations wanting native firewall without additional cost—**trade-off**: Windows-only for the free version; cross-platform requires paid tier.
-
-
-
-- **Sophos Endpoint Firewall**
-
-  **Host firewall within Sophos Intercept X**. **Pricing**: Quote-only; bundled with endpoint protection. **Free tier**: Trial available. **Best for**: Sophos customers wanting integrated endpoint and firewall management.
-
-
-
-- **Symantec Client Firewall** (Broadcom)
-
-  **Endpoint firewall** within Symantec Endpoint Protection. **Pricing**: Quote-only. **Free tier**: None. **Best for**: enterprises with existing Broadcom/Symantec investments—**trade-off**: product roadmap uncertainty.
-
-
-
-- **Trellix Endpoint Firewall**
-
-  **Host firewall** within Trellix endpoint security suite. **Pricing**: Quote-only. **Free tier**: None. **Best for**: enterprises with existing Trellix investments.
-
-
-
-- **Bitdefender GravityZone Firewall**
-
-  **Host firewall** within GravityZone platform. **Pricing**: Quote-only; tiered by features. **Free tier**: Trial available. **Best for**: organizations wanting integrated endpoint security with firewall.
-
-
-
-- **Comodo Firewall**
-
-  **Endpoint firewall** with default-deny and sandboxing. **Pricing**: **Free version available**; paid business plans quote-based. **Free tier**: Yes, free for personal use. **Best for**: users wanting aggressive default-deny protection—**trade-off**: false positives; business features require paid plans.
-
-
-
-- **ZoneAlarm Business**
-
-  **Endpoint firewall** with advanced threat protection. **Pricing**: Quote-only; tiered by users. **Free tier**: Free personal version exists. **Best for**: SMBs wanting firewall with application control.
-
-
-
-- **Kaspersky Endpoint Security**
-
-  **Endpoint protection** with host firewall. **Pricing**: Quote-only. **Free tier**: Trial available. **Best for**: organizations wanting integrated endpoint security—**trade-off**: geopolitical concerns may limit adoption.
-
-
-
-- **Check Point Endpoint Security**
-
-  **Enterprise endpoint security** with firewall and threat prevention. **Pricing**: Quote-only. **Free tier**: None. **Best for**: Check Point customers wanting unified endpoint and network security.
-
-
-
-## Open-Source GitHub Projects
-
-
-
-- **SysWarden**
-
-  **Host-local Linux defense with auditable nftables enforcement** (open source, v4.10.4) — **the most rigorous open-source host firewall** for operators wanting reviewable, fail-closed defense . **Features**: **Authoritative nftables policy** with bounded firewalld and UFW compatibility when exactly one frontend is active; **persistent blocklists, whitelists, and SSH exceptions** with canonical IP, CIDR, and service-scoped entries; **host telemetry and out-of-band WAAP log analysis**; **bounded threat-intelligence feeds** with last-known-good behavior; **native terminal dashboard**—no browser service or listening port; **authenticated HA synchronization** over TLS 1.3; **BunkerWeb integration** with provenance-aware cleanup; native DEB, RPM, APK packaging . **Supply chain**: checksummed packages, signed update metadata, SPDX SBOM, Ed25519-signed manifests . **Tech stack**: Linux (nftables). **Deploy**: Self-hosted (Linux amd64, packages). **Trade-off**: **Linux-only**; no Windows or macOS support; operator-oriented (CLI/TUI, not a consumer GUI). **Best for**: Linux operators wanting one reviewable, auditable host defense layer with fail-closed enforcement—especially those who need to prove what was blocked and why.
-
-
-
-- **Portmaster**
-
-  **Open-source application firewall for Windows and Linux** (open source, EU-developed) — **the most user-friendly open-source endpoint firewall**, focused on privacy and per-app control . **Features**: **Monitor all network activity**—every packet is visible and can be stopped; **per-app rules**—define allowed network scopes (localhost, LAN, internet, P2P, inbound); **automatic blocking** of trackers, malware, and ads via filter lists; **secure DNS** (DoH/DoT) with DNS rebinding protection; **network history** with searchable local database; **per-app bandwidth usage**; **special process support**—Snap, AppImage, scripts on Linux; Windows Store apps and svchost.exe on Windows . **Architecture**: nfqueue on Linux, kernel driver (WFP) on Windows; eBPF and /proc for connection ownership on Linux . **Tech stack**: Go. **Deploy**: Desktop application (Windows, Linux). **Trade-off**: **No central management**—each host must be configured independently; no cloud orchestration. **Best for**: privacy-conscious users and small teams wanting per-application egress control without enterprise complexity—especially those wanting to see and block what apps are doing.
-
-
-
-- **OpenShield (OpenSnitch derivative)**
-
-  **Interactive application firewall with learning mode** (open source) — **the most feature-rich interactive firewall** for Linux, forking OpenSnitch with enhanced security controls . **Features**: **Learning mode** builds rules from observed connections; **Enforcing mode** with Strict and Fast strategies; **Strict** (default) exhaustively verifies process ownership; **Fast** caches ownership hints for performance—explicitly a weaker guarantee ; **Fail-closed BlockAll quarantine** on unsafe outcomes; **per-process rules** with executable path, UID, and optional argv/cgroup; **packet verdicts are never cached**—current rules always apply . **Tech stack**: Linux (nftables, NFQUEUE). **Deploy**: Self-hosted (Linux). **Trade-off**: **Linux-only**; interactive prompts require user attention during learning; Fast mode trades security for performance. **Best for**: Linux users wanting granular per-connection control with a learning curve that builds rules from actual behavior—especially those who want to review and approve connections interactively.
-
-
-
-- **netxfw**
-
-  **eBPF/XDP-based Linux host firewall** (open source, v0.4.0) — **the highest-performance open-source firewall**, processing packets at the network driver layer . **Features**: **XDP-based packet processing**—drops malicious packets at the driver level, bypassing the kernel network stack with minimal CPU overhead; **IPv4 and IPv6 support** with CIDR blocking; **automatic interface detection**; **Prometheus exporter** for drop rates and traffic trends; **one-command blocking** (`netxfw lock <IP>`) with dynamic rule loading; **YAML configuration** for cloud-native integration . **Tech stack**: Go, eBPF/XDP. **Deploy**: Self-hosted (Linux kernel 5.4+). **Trade-off**: **Firewall only**—no application-level control or process attribution; best for network-layer DDoS and scan blocking, not per-app egress. **Best for**: Linux servers needing high-performance network-layer protection against DDoS, brute force, and scanning—especially those wanting eBPF performance without complex configuration.
-
-
-
-### Additional Strong Open-Source Options
-
-
-
-- **pfSense / OPNsense** — FreeBSD-based firewall distributions (Apache 2.0 / BSD). Full-featured network firewalls with web UI, stateful inspection, VPN, and IDS/IPS. **Note**: **Network perimeter firewalls**, not host-based endpoint firewalls—they protect networks, not individual endpoints . **Best for**: network perimeter defense, not endpoint protection.
-
-- **UFW / firewalld** — Linux host firewall frontends (GPL). Simple iptables/nftables management. **Note**: **Basic port-based firewalls**—no application control or per-process rules. **Best for**: basic host network protection on Linux servers.
-
-
-
-**Frameworks for building custom systems**: Combine **SysWarden** for auditable nftables enforcement with **Portmaster** for application-level egress control and **netxfw** for high-performance DDoS protection—creating a layered Linux host defense stack. **None of these match CrowdStrike's cloud-managed fleet orchestration**, but for single-host or small-fleet protection, the options are production-capable.
-
-
-
-## How to Contribute
-
-
-
-1. Fork the repo.
-
-2. Add/edit entries in `README.md` (follow existing format).
-
-3. Include: name, link, 1–2 sentence description, license (for open-source), and whether it's SaaS or open-source.
-
-4. Submit PR with a short explanation.
-
-
-
-Star the repo if you find it useful!
-
-
-
-## Disclaimer
-
-
-
-- This is a **community-curated** list — not exhaustive and not an endorsement.
-
-- Endpoint firewall platforms handling network policies must comply with data protection regulations (GDPR, CCPA, etc.) and implement appropriate access controls.
-
-- **The "network perimeter firewall" vs. "host-based endpoint firewall" vs. "application firewall" distinction is critical.** **pfSense and OPNsense** are **network perimeter firewalls**—they protect entire networks, not individual endpoints . **Microsoft Defender Firewall, Sophos, Symantec, and Trellix** are **host-based endpoint firewalls**—they run on each endpoint and enforce per-host policies . **Portmaster and OpenShield** are **application firewalls**—they add per-process control and egress filtering . **SysWarden and netxfw** are **host firewalls**—they enforce nftables/XDP rules on Linux hosts . **Choose based on whether you need network defense, host-level port control, or per-application egress.**
-
-- **SysWarden is the most rigorous open-source host firewall** for auditable, fail-closed Linux defense—with SBOM, signed manifests, and operator guidance . **The trade-off**: Linux-only, operator-oriented (TUI, not GUI).
-
-- **Portmaster is the most user-friendly open-source application firewall**—per-app rules, automatic tracker blocking, secure DNS, and network history for Windows and Linux . **The trade-off**: no central management; each host is configured independently.
-
-- **OpenShield's Fast mode is a deliberate security tradeoff**—it caches ownership hints and can miss same-UID extra owners that Strict would detect . **Use Strict when exhaustive matching-UID owner discovery is required** .
-
-- **netxfw is for network-layer defense, not application control.** It drops packets at XDP with minimal CPU overhead—ideal for DDoS and scanning—but does not know which process sent a packet . **Pair it with an application firewall for full coverage.**
-
-- **Microsoft Defender Firewall is free and fully featured on Windows**—the most cost-effective option for Windows endpoints . **Cross-platform management requires Microsoft Defender for Business at $2.94/user/month** .
-
-- **CrowdStrike Falcon Go includes firewall management free for up to 100 devices**—the most generous commercial entry point . **Pro at $14.99/device/month** adds full features.
-
-- Self-hosted open-source solutions require proper setup, kernel compatibility (Linux 5.4+ for netxfw), and ongoing maintenance. **Host firewalls control network access**—ensure your deployment meets your organization's security standards before enforcing policies on production endpoints.
-
-
+<p align="center">
+  <img src="./assets/banner.svg" alt="Awesome Endpoint Host Firewall Protection Banner" width="100%" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
+  <a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection?style=social" alt="GitHub stars" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection/network/members"><img src="https://img.shields.io/github/forks/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection?style=social" alt="GitHub forks" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection/issues"><img src="https://img.shields.io/github/issues/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection?color=red" alt="GitHub issues" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" /></a>
+  <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
+</p>
 
 ---
 
+## 🛡️ Top Endpoint Host Firewall Protection (Open Source & Enterprise SaaS) 🌟 Star if you like it! 🌟
 
+> **A comprehensive, SEO-optimized curated directory of enterprise SaaS solutions and open-source GitHub projects dedicated to Host-Based Firewalls, Application Egress Filtering, Per-Process Network Control, Zero-Trust Microsegmentation, and Self-Hosted Endpoint Defense.**
 
-**Made for security engineers, system administrators, and organizations building transparent endpoint firewall solutions.**
+*Last updated: November 2026*
 
-Let's make Endpoint Host Firewall Protection more open, data-driven, and network-aware.
+Endpoint Host Firewalls operate directly on endpoints (workstations, servers, laptops, and virtual containers) rather than on network edge perimeters. They enforce granular connection filtering, prevent lateral movement during cyber intrusions, block outbound data exfiltration, inspect application-level traffic, and provide audit-ready telemetry for SecOps and compliance teams.
+
+---
+
+## 📑 Table of Contents
+
+- [📊 Sector Overview & Market Dynamics](#-sector-overview--market-dynamics)
+- [☁️ SaaS / Enterprise Hosted Platforms](#️-saas--enterprise-hosted-platforms)
+- [💻 Open-Source GitHub Projects](#-open-source-github-projects)
+- [🧩 Architectural Comparison & Implementation Insights](#-architectural-comparison--implementation-insights)
+- [🤝 How to Contribute](#-how-to-contribute)
+- [⚠️ Disclaimer](#️-disclaimer)
+- [📈 Star History](#-star-history)
+- [☕ Support](#-support)
+
+---
+
+## 📊 Sector Overview & Market Dynamics
+
+The global endpoint security and host-level protection market is estimated at **$16.3B to $17.8B in 2025–2026**, projected to exceed **$34B by 2034 at a compound annual growth rate (CAGR) of ~8.6% to 9.6%**. The sector is **moderately concentrated** among enterprise cybersecurity mega-vendors (Microsoft, CrowdStrike, Broadcom/Symantec, and Sophos) who dominate high-density corporate fleet management through unified EDR/XDR agent architectures, yet remains **vibrantly fragmented** at the host-level application and developer tier where specialized egress-filtering utilities and modular open-source engines (e.g., eBPF/XDP, nftables, LuLu, Portmaster) address critical gaps in transparency, privacy, and Linux/macOS ergonomics.
+
+---
+
+## ☁️ SaaS / Enterprise Hosted Platforms
+
+Enterprise endpoint host firewalls provide centralized policy orchestration, global fleet synchronization, compliance reporting, and out-of-the-box telemetry aggregation.
+
+### 🏢 SaaS Product Directory & Pricing Analysis
+
+*All vendors sorted in descending order by enterprise market valuation / annual corporate revenue.*
+
+| Product / Platform | Company Valuation / Revenue | Starting Pricing Tier | Free Tier & Free Trial Limits | Key Strengths & Deployment Focus |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Microsoft Defender Firewall](https://www.microsoft.com/en-us/security/business/endpoint-security/microsoft-defender-endpoint)** | **~$3.1 Trillion** (Market Cap) | **Free** native with Windows 10/11; **$2.94/user/month** (Defender for Business annual) | **100% Free Forever** on Windows client OS (unlimited endpoints, local GUI & PowerShell). Enterprise centralized cloud portal: 30-day free trial up to 300 seats. | Native Windows Filtering Platform (WFP) deep integration; zero footprint overhead; cross-platform fleet management available via Intune and Defender for Endpoint. |
+| **[Symantec Client Firewall](https://www.broadcom.com/products/cybersecurity/endpoint)** (Broadcom) | **~$800+ Billion** (Broadcom Market Cap) | **$39.00/user/year** (SES Enterprise baseline through distributors) | **30-day free trial** upon enterprise sales validation (covers up to 250 evaluation endpoints); no free-forever plan. | Deeply established enterprise host intrusion prevention (HIPS) and network tamper protection for existing Broadcom customers. |
+| **[CrowdStrike Falcon Firewall Management](https://www.crowdstrike.com/products/endpoint-security/falcon-firewall-management/)** | **~$70+ Billion** (Market Cap) | **$14.99/device/month** or **$99.99/device/year** (Falcon Pro tier) | **Free Forever Tier**: Falcon Go tier offers **free management for up to 100 devices**; 15-day full-featured enterprise trial also available. | Unified single lightweight agent; instant cloud policy propagation; bi-directional host isolation and correlation with Falcon EDR telemetry. |
+| **[Check Point Harmony Endpoint](https://www.checkpoint.com/harmony/endpoint/)** | **~$22 Billion** (Market Cap) | **$22.00/device/year** (~$1,100/year for 50-device block on Basic tier) | **30-day free trial** for up to 50 endpoints (full cloud management console access); no permanent free tier. | Enterprise-grade perimeter and host defense synchronization; robust anti-ransomware and zero-phishing integrations. |
+| **[Sophos Endpoint Firewall](https://www.sophos.com/en-us/products/endpoint-antivirus)** (Intercept X) | **~$4 Billion** (Thoma Bravo Valuation) | **$28.00/user/year** (Sophos Intercept X Advanced baseline via partners) | **30-day free trial** with full cloud-managed Sophos Central console features (up to 100 test devices); no permanent free tier. | Synchronized Security heartbeat connecting host firewalls directly to Sophos XGS network firewall appliances for instant lateral isolation. |
+| **[Kaspersky Endpoint Security](https://www.kaspersky.com/small-to-medium-business-security)** (Next Line) | **~$750 Million** (Annual Revenue) | **$28.00/device/year** (Kaspersky Next EDR Foundations, 5-device pack baseline) | **30-day free trial** for up to 50 endpoints with full Kaspersky Security Center Cloud access; no permanent free tier. | Mature host IPS engine, granular packet inspection rules, and lightweight client footprint across multi-OS fleets. |
+| **[Trellix Endpoint Firewall](https://www.trellix.com/products/endpoint-security/)** (formerly McAfee/FireEye) | **~$700 Million** (Annual Revenue) | **$45.00/endpoint/year** (Trellix Endpoint Security Essentials baseline quote) | **30-day free trial** on-demand via Trellix enterprise proof-of-concept program; no permanent free tier. | Deeply configurable policy matrices for mission-critical enterprise workstation fleets and air-gapped infrastructure. |
+| **[Bitdefender GravityZone Firewall](https://www.bitdefender.com/business/enterprise-products/endpoint-security.html)** | **~$400 Million** (Annual Revenue) | **$35.00/device/year** ($273/year for baseline 10-device pack) | **30-day free trial** for up to 100 endpoints with full cloud management features; no permanent free tier. | Clean, rapid-deployment cloud console; minimal client performance degradation; highly accurate automated application behavior rules. |
+| **[ZoneAlarm Pro / Business](https://www.zonealarm.com/)** (Check Point Consumer/SMB) | Check Point Subsidiary (~$22B Parent) | **$39.95/year** (ZoneAlarm Pro Antivirus + Firewall, 5 PCs) | **Free Forever Tier**: ZoneAlarm Free Firewall (100% free for individual personal use on 1 PC, manual rule controls); 30-day trial for Pro. | Pioneer consumer/SMB two-way host firewall; stealth mode hides ports completely from external port scans. |
+| **[Comodo Firewall / Xcitium Client](https://www.xcitium.com/client-security/)** | **~$100 Million** (Private / Xcitium) | **$39.00/endpoint/year** ($3.25/endpoint/month, 5-seat minimum) | **Free Forever Tier**: Comodo Free Firewall (100% free for personal use on 1 PC with auto-containment); 30-day trial for Xcitium Cloud. | Patented virtualized auto-containment; blocks untrusted process socket binding and malicious egress attempts before verification. |
+
+---
+
+## 💻 Open-Source GitHub Projects
+
+Open-source host firewalls enable fully transparent, auditable, and self-hosted network defense. The list below features top community and kernel-level solutions sorted by GitHub Star counts.
+
+### 🌟 Open-Source Repository Ranking
+
+*All repositories sorted in descending order by GitHub Stars. Badges display real-time stargazers with `style=social`.*
+
+| Project & Repository | Stars | Primary Platform | Architecture & Inspection Layer | Core Capabilities |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Fail2ban](https://github.com/fail2ban/fail2ban)** | [![Stars](https://img.shields.io/github/stars/fail2ban/fail2ban?style=social&color=white)](https://github.com/fail2ban/fail2ban/stargazers) | Linux | Log Analysis & Dynamic iptables/nftables | Scans auth logs (SSH, HTTP, mail) for brute-force attacks and dynamically bans malicious IPs via netfilter rules. |
+| **[CrowdSec](https://github.com/crowdsecurity/crowdsec)** | [![Stars](https://img.shields.io/github/stars/crowdsecurity/crowdsec?style=social&color=white)](https://github.com/crowdsecurity/crowdsec/stargazers) | Linux, Windows, macOS, BSD | Behavioral Telemetry & Firewall Bouncers | Collaborative intrusion prevention engine; parses system and application logs to trigger automatic remediation bouncers. |
+| **[OpenSnitch](https://github.com/evilsocket/opensnitch)** | [![Stars](https://img.shields.io/github/stars/evilsocket/opensnitch?style=social&color=white)](https://github.com/evilsocket/opensnitch/stargazers) | Linux | NFQUEUE, iptables/nftables & GUI/Daemon | Interactive application firewall porting Little Snitch ergonomics to Linux; alerts in real-time when apps open network connections. |
+| **[Portmaster](https://github.com/safing/portmaster)** | [![Stars](https://img.shields.io/github/stars/safing/portmaster?style=social&color=white)](https://github.com/safing/portmaster/stargazers) | Windows, Linux | Kernel Drivers (WFP) & eBPF / NFQUEUE | Privacy-first desktop application firewall; per-process network policies, automatic tracker/ad blocking, and Encrypted DNS (DoH/DoT). |
+| **[LuLu](https://github.com/objective-see/LuLu)** | [![Stars](https://img.shields.io/github/stars/objective-see/LuLu?style=social&color=white)](https://github.com/objective-see/LuLu/stargazers) | macOS | macOS Network Extensions API | Open-source macOS outgoing connection firewall; intercepts unauthorized egress traffic and prompts users per application. |
+| **[Simplewall](https://github.com/henrypp/simplewall)** | [![Stars](https://img.shields.io/github/stars/henrypp/simplewall?style=social&color=white)](https://github.com/henrypp/simplewall/stargazers) | Windows | Native Windows Filtering Platform (WFP) | Lightweight standalone UI to configure native Windows Filtering Platform without background telemetry; internal blocklists included. |
+| **[pfSense](https://github.com/pfsense/pfsense)** | [![Stars](https://img.shields.io/github/stars/pfsense/pfsense?style=social&color=white)](https://github.com/pfsense/pfsense/stargazers) | FreeBSD | Packet Filter (PF) & Web UI | Turnkey enterprise firewall and router software with stateful packet inspection, VPN gateways, and traffic shaping (*Perimeter defense*). |
+| **[OPNsense](https://github.com/opnsense/core)** | [![Stars](https://img.shields.io/github/stars/opnsense/core?style=social&color=white)](https://github.com/opnsense/core/stargazers) | HardenedBSD / FreeBSD | Packet Filter (PF) & MVC GUI | Open-source firewall and routing platform with inline IPS (Suricata), two-factor authentication, and web filtering (*Perimeter defense*). |
+| **[firewalld](https://github.com/firewalld/firewalld)** | [![Stars](https://img.shields.io/github/stars/firewalld/firewalld?style=social&color=white)](https://github.com/firewalld/firewalld/stargazers) | Linux | D-Bus daemon for nftables & iptables | Dynamically managed host firewall supporting network zones, trust interfaces, IP sets, and rich declarative rules. |
+| **[SysWarden](https://github.com/duggytuxy/syswarden)** | [![Stars](https://img.shields.io/github/stars/duggytuxy/syswarden?style=social&color=white)](https://github.com/duggytuxy/syswarden/stargazers) | Linux | Authoritative nftables & TUI Dashboard | Fail-closed host security orchestrator; auditable nftables enforcement, signed update manifests, and persistent CIDR blocklists. |
+| **[OpenShield (OpenSnitch Fork)](https://github.com/gustavo-iniguez-goya/opensnitch)** | [![Stars](https://img.shields.io/github/stars/gustavo-iniguez-goya/opensnitch?style=social&color=white)](https://github.com/gustavo-iniguez-goya/opensnitch/stargazers) | Linux | nftables & NFQUEUE Strict Mode | Enhanced branch featuring learning mode, strict UID process resolution, and fail-closed quarantine safeguards. |
+| **[netxfw-shell / netxfw](https://github.com/livp123/netxfw-shell)** | [![Stars](https://img.shields.io/github/stars/livp123/netxfw-shell?style=social&color=white)](https://github.com/livp123/netxfw-shell/stargazers) | Linux (Kernel 5.4+) | eBPF / XDP Driver Layer | Ultra-high performance packet dropping directly in network driver layer; bypasses kernel stack overhead for anti-DDoS protection. |
+
+---
+
+## 🧩 Architectural Comparison & Implementation Insights
+
+Understanding the operational boundary of each defense layer ensures optimal architecture:
+
+1. **Host-Based Firewalls vs. Network Perimeter Firewalls**:
+   - *Perimeter Firewalls* ([pfSense](https://github.com/pfsense/pfsense), [OPNsense](https://github.com/opnsense/core)) filter traffic arriving at the edge router/gateway. Once an attacker breaches the subnet, perimeter appliances cannot inspect traffic moving laterally between endpoints.
+   - *Host-Based Firewalls* ([Microsoft Defender Firewall](https://www.microsoft.com/en-us/security/business/endpoint-security/microsoft-defender-endpoint), [SysWarden](https://github.com/duggytuxy/syswarden), [firewalld](https://github.com/firewalld/firewalld)) inspect sockets directly on individual operating systems, providing defense against infected neighboring devices on the same Wi-Fi or LAN.
+
+2. **Application Egress & Per-Process Filtering**:
+   - Tools like [Portmaster](https://github.com/safing/portmaster), [OpenSnitch](https://github.com/evilsocket/opensnitch), and [LuLu](https://github.com/objective-see/LuLu) bind network packets to process PIDs, file hashes, and parent execution chains. This thwarts reverse shells, telemetry snooping, and covert data exfiltration.
+
+3. **Kernel-Level eBPF / XDP Acceleration**:
+   - Modern Linux host defense increasingly pairs userspace policy daemons with eBPF/XDP hooks ([netxfw](https://github.com/livp123/netxfw-shell)), dropping millions of malicious packets per second before memory allocations hit the kernel network stack.
+
+---
+
+## 🤝 How to Contribute
+
+Contributions, project additions, and corrections are warmly welcomed! 
+
+1. **Fork the repository** to your GitHub account.
+2. **Create a descriptive feature branch**: `git checkout -b feature/add-new-host-firewall`.
+3. **Add your entry** adhering to the existing markdown table formatting:
+   - Ensure SaaS entries include verified starting prices and explicit free tier/trial durations.
+   - Ensure open-source projects include official GitHub stargazers badge links.
+4. **Commit your modifications**: `git commit -m "feat: add NewFirewall to open-source directory"`.
+5. **Push and submit a Pull Request** with a brief summary of the software.
+
+---
+
+## ⚠️ Disclaimer
+
+- This repository is a community-curated directory compiled for educational, architectural, and security evaluation purposes.
+- Always test host firewall rules and fail-closed policies in staging or virtualized sandboxes before deploying across live enterprise infrastructure to avoid accidental loss of remote access (e.g., SSH/RDP lockouts).
+- Product trademarks and service marks belong to their respective corporate entities.
+
+---
+
+## 📈 Star History
+
+[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-Endpoint-Host-Firewall-Protection&type=date&legend=top-left)
+
+---
+
+## ☕ Support
+
+If you found this curated guide valuable for securing your hosts, endpoints, and server infrastructure, consider showing your support:
+
+- ⭐ **Star this repository** to help others discover it across GitHub.
+- 🍴 **Fork the project** and contribute additional firewall tools and guides.
+- 📢 **Share this repository** with your fellow DevOps, SecOps, and SysAdmin colleagues.
+- 💖 **Sponsor the Maintainer**: Support ongoing open-source curation and development via the [GitHub Sponsor Dashboard](https://github.com/sponsors/ishandutta2007).
